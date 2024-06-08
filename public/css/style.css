@@ -51,6 +51,11 @@ color: #222222;
     }
 
 .f-info{
+   
+    bottom: 0;
+    
+    z-index: 999; 
+    width: 100%;
     text-align: center;
     height: 8rem;
     background-color: #ebebeb;
@@ -58,6 +63,7 @@ color: #222222;
     flex-wrap: wrap;
     justify-content: center;
     align-items: space-evenly;
+
 }
 
 /* cards */
@@ -119,3 +125,12 @@ background-color: white;
     padding-right: 0;
 
 }
+
+/* MAP STYLING */
+
+
+#map { 
+    position: absolute;
+    height: 400px;
+    width: 80vh;
+} 

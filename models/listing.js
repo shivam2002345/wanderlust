@@ -9,10 +9,10 @@ const listingSchema = new Schema({
     },
     description:String,
     image:{
-    type:String,
-    default:"https://images.unsplash.com/photo-1682685797527-63b4e495938f?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8",
-    set: (v) => v=== "" ? "https://images.unsplash.com/photo-1682685797527-63b4e495938f?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8" :v,
-    },
+            url:String,
+            filename:String,
+
+     },
     price:Number,
     location:String,
     country:String,
@@ -26,6 +26,17 @@ const listingSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref:"User",
     },
+    geometry: {
+        type: {
+          type: String, 
+          enum: ['Point'],
+          required: true
+        },
+        coordinates: {
+          type: [Number],
+          required: true
+        }
+      }
 });
 
 listingSchema.post("findOneAndDelete",async (listing) => {
